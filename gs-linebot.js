@@ -7,7 +7,7 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
-  userProperties.setProperty('temperatureText', nowDatetime  + "ªº·Å«×¬O " + temperature + " «×");
+  userProperties.setProperty('temperatureText', nowDatetime  + "temperature is " + temperature + " C");
   
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
@@ -17,7 +17,7 @@ function doGet(e){
 function doPost(e) {
   var msg = JSON.parse(e.postData.contents);
 
-  // ¨ú¥X replayToken ©M¨Ï¥ÎªÌ°e¥Xªº°T®§¤å¦r
+  // å–å‡º replayToken å’Œä½¿ç”¨è€…é€å‡ºçš„è¨Šæ¯æ–‡å­—
   var replyToken = msg.events[0].replyToken;
   var userMessage = msg.events[0].message.text;
 
@@ -26,10 +26,10 @@ function doPost(e) {
   }
 
   if (typeof keyWords === 'undefined') {
-    var keyWords = ["¿ì¤½«Ç·Å«×", "¿ì¤½«Ç´X«×", "¿ì¤½«Ç¼ö¤£¼ö"];
+    var keyWords = ["T_office"];
   }
   else {
-    keyWords = keyWords.concat(["¿ì¤½«Ç·Å«×", "¿ì¤½«Ç´X«×", "¿ì¤½«Ç¼ö¤£¼ö"]);
+    keyWords = keyWords.concat(["T_office"]);
   }
   
   var returnText;
@@ -50,7 +50,7 @@ function doPost(e) {
       returnText =  temperatureText;
     }
     else {
-      returnText = "©êºp§ÚµLªk¨ú±o·Å«×";
+      returnText = "SORRY DATA BAD";
     }
   }
   else {
@@ -77,7 +77,7 @@ function doPost(e) {
 
 function getMisunderstandWords() {
   var _misunderstandWords = [
-    "MARK1«Ü°ª¿³¬°±zªA°È",
+    "CN_MARK1 glad to serve you",
 
   ];
   
