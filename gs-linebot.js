@@ -7,7 +7,7 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
-  userProperties.setProperty('temperatureText', nowDatetime  + "    [T] = " + temperature + " °C");
+  userProperties.setProperty('temperatureText', nowDatetime  + "temperature detecting[T] " + temperature + " °C");
   
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
