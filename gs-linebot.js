@@ -7,7 +7,7 @@ function doGet(e){
   }
 
   var nowDatetime = new Date().toLocaleString();
-  userProperties.setProperty('temperatureText', nowDatetime  + "temperature detecting[T]" + temperature + " °C");
+  userProperties.setProperty('temperatureText', nowDatetime  + "Coating2 office[T]=" + temperature + "°C");
   
   var returnText = temperature + " OK";
   var textOutput = ContentService.createTextOutput(returnText)
@@ -26,7 +26,7 @@ function doPost(e) {
   }
 
   if (typeof keyWords === 'undefined') {
-    var keyWords = ["T_office"];
+    var keyWords = ["T01"];
   }
   else {
     keyWords = keyWords.concat(["T_office"]);
